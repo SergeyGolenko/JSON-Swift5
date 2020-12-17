@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FirstTableViewController: UITableViewController {
     
@@ -46,6 +47,10 @@ class FirstTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
           getCources()
+        
+        DispatchQueue.main.async {
+           
+        }
     
     }
 
@@ -62,38 +67,16 @@ class FirstTableViewController: UITableViewController {
         let itemForCell = items[indexPath.row]
         cell?.titileForCustomCell.text = itemForCell.title
         cell?.subtitleForCustomCell.text = itemForCell.subtitle
-        cell?.pictureForCustomCell.image =  getImage(from: itemForCell.imageURL)
-
+        
+        if let url = URL(string: itemForCell.imageURL){
+        cell?.pictureForCustomCell.kf.setImage(with:url)
+        }
         return cell!
     }
     
     
     
     
-    
-   func getImage(from string: String) -> UIImage? {
-       //2. Get valid URL
-       guard let url = URL(string: string)
-           else {
-               print("Unable to create URL")
-               return nil
-       }
-
-       var image: UIImage? = nil
-       do {
-           //3. Get valid data
-           let data = try Data(contentsOf: url, options: [])
-
-           //4. Make image
-           image = UIImage(data: data)
-       }
-       catch {
-           print(error.localizedDescription)
-       }
-
-       return image
-   }
-
 
 
    
