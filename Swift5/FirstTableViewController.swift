@@ -45,7 +45,7 @@ class FirstTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-getCources()
+//getCources()
     
     }
 
@@ -54,13 +54,13 @@ getCources()
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return  items.count   }
+        return  5  }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        let itemForCell = items[indexPath.row].title
-        cell?.textLabel?.text = itemForCell
+//        let itemForCell = items[indexPath.row].title
+//        cell?.textLabel?.text = itemForCell
         return cell!
     }
 
