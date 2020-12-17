@@ -45,7 +45,7 @@ class FirstTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//getCources()
+          getCources()
     
     }
 
@@ -54,14 +54,52 @@ class FirstTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return  5  }
+        return  items.count }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CustomCellTableViewCell
         
-//        let itemForCell = items[indexPath.row].title
-//        cell?.textLabel?.text = itemForCell
+        let itemForCell = items[indexPath.row]
+        cell?.titileForCustomCell.text = itemForCell.title
+        cell?.subtitleForCustomCell.text = itemForCell.subtitle
+        cell?.pictureForCustomCell.image =  getImage(from: itemForCell.imageURL)
+
         return cell!
     }
+    
+    
+    
+    
+    
+   func getImage(from string: String) -> UIImage? {
+       //2. Get valid URL
+       guard let url = URL(string: string)
+           else {
+               print("Unable to create URL")
+               return nil
+       }
 
+       var image: UIImage? = nil
+       do {
+           //3. Get valid data
+           let data = try Data(contentsOf: url, options: [])
+
+           //4. Make image
+           image = UIImage(data: data)
+       }
+       catch {
+           print(error.localizedDescription)
+       }
+
+       return image
+   }
+
+
+
+   
+    
+ 
 }
+
+
+

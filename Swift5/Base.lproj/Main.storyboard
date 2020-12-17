@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="500" id="Iel-gL-pQl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="500" id="Iel-gL-pQl" customClass="CustomCellTableViewCell" customModule="Swift5" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="500"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iel-gL-pQl" id="BZO-y1-yKM">
@@ -59,6 +59,11 @@
                                         <constraint firstItem="xdY-VR-71Q" firstAttribute="top" secondItem="BZO-y1-yKM" secondAttribute="topMargin" id="yqe-j1-Egv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pictureForCustomCell" destination="xdY-VR-71Q" id="nCO-KU-WbR"/>
+                                    <outlet property="subtitleForCustomCell" destination="LFu-8u-6wI" id="sHf-oA-ppr"/>
+                                    <outlet property="titileForCustomCell" destination="uLY-cu-CXK" id="8cJ-Rg-Xwd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,7 +97,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="probuu" width="1500" height="844"/>
+        <image name="probuu" width="750" height="422"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
